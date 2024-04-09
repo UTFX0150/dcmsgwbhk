@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Send Message via Webhook</title>
-<script>
-function sendMessage() {
-  const webhookUrl = document.getElementById('webhookUrl').value;
-    const messageContent = document.getElementById('messageContent').value;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Message via Webhook</title>
+  <script>
+    function sendMessage() {
+      const webhookUrl = document.getElementById('webhookUrl').value;
+      const messageContent = document.getElementById('messageContent').value;
 
       fetch(webhookUrl, {
-          method: 'POST',
-              headers: {
-                    'Content-Type': 'application/json',
-                        },
-                            body: JSON.stringify({ content: messageContent }),
-                              })
-                                .then(response => response.text())
-                                  .then(result => alert('Message sent successfully!'))
-                                    .catch(error => console.error('Error:', error));
-                                    }
-                                    </script>
-                                    </head>
-                                    <body>
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: messageContent }),
+      })
+        .then(response => response.text())
+        .then(result => alert('Message sent successfully!'))
+        .catch(error => console.error('Error:', error));
+    }
+  </script>
+</head>
 
-                                    <h2>Send Message via Webhook</h2>
+<body>
 
-                                    <form onsubmit="event.preventDefault(); sendMessage();">
-                                      <label for="webhookUrl">Webhook URL:</label><br>
-                                        <input type="text" id="webhookUrl" name="webhookUrl"><br>
-                                          <label for="messageContent">Message:</label><br>
-                                            <textarea id="messageContent" name="messageContent"></textarea><br><br>
-                                              <input type="submit" value="Send Message">
-                                              </form>
+  <h2>Send Message via Webhook</h2>
 
-                                              </body>
-                                              </html>
-                                              
+  <form onsubmit="event.preventDefault(); sendMessage();">
+    <label for="webhookUrl">Webhook URL:</label><br>
+    <input type="text" id="webhookUrl" name="webhookUrl"><br>
+    <label for="messageContent">Message:</label><br>
+    <textarea id="messageContent" name="messageContent"></textarea><br><br>
+    <input type="submit" value="Send Message">
+  </form>
+
+</body>
+
+</html>
